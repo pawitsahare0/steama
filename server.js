@@ -1,8 +1,11 @@
 const https = require('https');
-const mp4Url = 'https://www.example.com/path/to/mp4Video.mp4';
+const express = require('express');
+const file = 'https://speed.hetzner.de/1GB.bin';
+const app = express();
 
 app.get("/", (req, res) => {
-    https.get(mp4Url, (stream) => {
+    https.get(file, (stream) => {
         stream.pipe(res);
     });
 });
+app.listen(3000);
